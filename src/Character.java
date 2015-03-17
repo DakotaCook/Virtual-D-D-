@@ -41,30 +41,8 @@ public class Character {
 			}
 		}
 		
+		
 		int r = ((int)(1+Math.random()*5));
-		switch(r){
-		case 1: this.title = "Fighter"; this.hitpoints = 10+this.constitution-10;
-			break;
-		case 2: this.title = "Theif"; this.hitpoints = 6+this.constitution-10;
-			break;
-		case 3: this.title = "Cleric"; this.hitpoints = 8+this.constitution-10;
-			break;
-		case 4: this.title = "Mage"; this.hitpoints = 4+this.constitution-10;
-			break;
-		case 5: this.title = "Bard"; this.hitpoints = 6+this.constitution-10;
-			break;
-		default: this.title = "Fighter"; this.hitpoints = 10+this.constitution-10;
-			break;
-		}
-		
-		String[] possibleNames ={"Omen","Fenrick","Gigamesh","Ogris","Rogen","Draven","Tor","Tovak","Grix","Brutus",
-								 "Nigel","Glahad","Gwain","Ank","Aaron","Sparrow","Krish","Harold","Hermes","Prote",
-								 "Newton","Edward","Steven","William","Jack","Araney","Xia","Ellara","Jasmin","Helga"};
-		
-		this.name = possibleNames[((int)(1+Math.random()*possibleNames.length))]+" the "+this.title;
-		this.gold = 10*((int)(2+Math.random()*20));
-		
-		r = ((int)(1+Math.random()*5));
 		switch(r){
 		case 1: this.race = Race.DWARF;
 			break;
@@ -80,6 +58,29 @@ public class Character {
 			break;
 		}
 		
+		
+		r = ((int)(1+Math.random()*5));
+		switch(r){
+		case 1: this.title = "Fighter"; this.hitpoints = 10+getConstitution()-10;
+			break;
+		case 2: this.title = "Theif"; this.hitpoints = 6+getConstitution()-10;
+			break;
+		case 3: this.title = "Cleric"; this.hitpoints = 8+getConstitution()-10;
+			break;
+		case 4: this.title = "Mage"; this.hitpoints = 4+getConstitution()-10;
+			break;
+		case 5: this.title = "Bard"; this.hitpoints = 6+getConstitution()-10;
+			break;
+		default: this.title = "Fighter"; this.hitpoints = 10+getConstitution()-10;
+			break;
+		}
+		
+		String[] possibleNames ={"Omen","Fenrick","Gigamesh","Ogris","Rogen","Draven","Tor","Tovak","Grix","Brutus",
+								 "Nigel","Glahad","Gwain","Ank","Aaron","Sparrow","Krish","Harold","Hermes","Prote",
+								 "Newton","Edward","Steven","William","Jack","Araney","Xia","Ellara","Jasmin","Helga"};
+		
+		this.name = possibleNames[((int)(Math.random()*possibleNames.length))]+" the "+this.title;
+		this.gold = 10*((int)(2+Math.random()*20));
 	}// End Constructor
 
 	
