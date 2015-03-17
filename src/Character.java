@@ -12,6 +12,7 @@ public class Character {
 	
 	private String name = "";
 	private String title = "Fighter";
+	private Race race;
 	private int level = 1;
 	private int hitpoints = 1;
 	private int xp = 0;
@@ -63,6 +64,22 @@ public class Character {
 		this.name = possibleNames[((int)(1+Math.random()*possibleNames.length))]+" the "+this.title;
 		this.gold = 10*((int)(2+Math.random()*20));
 		
+		r = ((int)(1+Math.random()*5));
+		switch(r){
+		case 1: this.race = Race.DWARF;
+			break;
+		case 2: this.race = Race.ELF;
+			break;
+		case 3: this.race = Race.GNOME;
+			break;
+		case 4: this.race = Race.HALFLING;
+			break;
+		case 5: this.race = Race.HUMAN;
+			break;
+		default: this.race = Race.DWARF;
+			break;
+		}
+		
 	}// End Constructor
 
 	
@@ -87,6 +104,11 @@ public class Character {
 
 
 	public int getStrength() {
+		// If this race gets a bonus to strength than add it
+		if(race.getRacialAdjustment().containsKey(Skill.STRENGTH))
+		{
+			return  strength + race.getRacialAdjustment().get(Skill.STRENGTH);
+		}
 		return strength;
 	}
 
@@ -95,6 +117,11 @@ public class Character {
 	}
 
 	public int getDexterity() {
+		// If this race gets a bonus to dexterity than add it
+		if(race.getRacialAdjustment().containsKey(Skill.DEXTERITY))
+		{
+			return  dexterity + race.getRacialAdjustment().get(Skill.DEXTERITY);
+		}
 		return dexterity;
 	}
 
@@ -103,6 +130,11 @@ public class Character {
 	}
 
 	public int getConstitution() {
+		// If this race gets a bonus to constitution than add it
+		if(race.getRacialAdjustment().containsKey(Skill.CONSTITUTION))
+		{
+			return  constitution + race.getRacialAdjustment().get(Skill.CONSTITUTION);
+		}
 		return constitution;
 	}
 
@@ -111,6 +143,11 @@ public class Character {
 	}
 
 	public int getIntelligence() {
+		// If this race gets a bonus to intelligence than add it
+		if(race.getRacialAdjustment().containsKey(Skill.INTELLIGENCE))
+		{
+			return  intelligence + race.getRacialAdjustment().get(Skill.INTELLIGENCE);
+		}
 		return intelligence;
 	}
 
@@ -119,6 +156,11 @@ public class Character {
 	}
 
 	public int getWisdom() {
+		// If this race gets a bonus to wisdom than add it
+		if(race.getRacialAdjustment().containsKey(Skill.WISDOM))
+		{
+			return  wisdom + race.getRacialAdjustment().get(Skill.WISDOM);
+		}
 		return wisdom;
 	}
 
@@ -127,6 +169,11 @@ public class Character {
 	}
 
 	public int getCharisma() {
+		// If this race gets a bonus to charisma than add it
+		if(race.getRacialAdjustment().containsKey(Skill.CHARISMA))
+		{
+			return  charisma + race.getRacialAdjustment().get(Skill.CHARISMA);
+		}
 		return charisma;
 	}
 
@@ -185,13 +232,14 @@ public class Character {
 	@Override
 	public String toString() {
 		return name+" Lv: "+level+" Hp: "+hitpoints+" \n"+
+				"Race: "+race.getName()+"\n"+
 				"GOLD: "+gold+"\n"+
-				"STR ["+strength+"]\n"+
-				"DEX ["+dexterity+"]\n"+
-				"CON ["+constitution+"]\n"+
-				"INT ["+intelligence+"]\n"+
-				"WIS ["+wisdom+"]\n"+
-				"CHR ["+charisma+"]";
+				"STR ["+getStrength()+"]\n"+
+				"DEX ["+getDexterity()+"]\n"+
+				"CON ["+getConstitution()+"]\n"+
+				"INT ["+getIntelligence()+"]\n"+
+				"WIS ["+getWisdom()+"]\n"+
+				"CHR ["+getCharisma()+"]";
 	}
 	
 	

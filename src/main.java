@@ -1,8 +1,7 @@
 
 public class main {
-
 	public static void main(String[] args) {
-
+	
 		for(int i = 0; i < 5; i++){
 			Character temp = new Character();
 			System.out.println("\n"+(i+1)+") "+temp.toString());
