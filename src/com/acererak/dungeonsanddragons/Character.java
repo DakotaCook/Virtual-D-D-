@@ -1,5 +1,5 @@
+package com.acererak.dungeonsanddragons;
 import java.util.ArrayList;
-
 
 public class Character {
 
@@ -105,12 +105,7 @@ public class Character {
 
 
 	public int getStrength() {
-		// If this race gets a bonus to strength than add it
-		if(race.getRacialAdjustment().containsKey(Skill.STRENGTH))
-		{
-			return  strength + race.getRacialAdjustment().get(Skill.STRENGTH);
-		}
-		return strength;
+		return strength + race.getRacialBonus(Skill.STRENGTH);
 	}
 
 	public void setStrength(int strength) {
@@ -118,12 +113,7 @@ public class Character {
 	}
 
 	public int getDexterity() {
-		// If this race gets a bonus to dexterity than add it
-		if(race.getRacialAdjustment().containsKey(Skill.DEXTERITY))
-		{
-			return  dexterity + race.getRacialAdjustment().get(Skill.DEXTERITY);
-		}
-		return dexterity;
+		return dexterity + race.getRacialBonus(Skill.DEXTERITY);
 	}
 
 	public void setDexterity(int dexterity) {
@@ -131,12 +121,7 @@ public class Character {
 	}
 
 	public int getConstitution() {
-		// If this race gets a bonus to constitution than add it
-		if(race.getRacialAdjustment().containsKey(Skill.CONSTITUTION))
-		{
-			return  constitution + race.getRacialAdjustment().get(Skill.CONSTITUTION);
-		}
-		return constitution;
+		return constitution + race.getRacialBonus(Skill.CONSTITUTION);
 	}
 
 	public void setConstitution(int constitution) {
@@ -144,12 +129,7 @@ public class Character {
 	}
 
 	public int getIntelligence() {
-		// If this race gets a bonus to intelligence than add it
-		if(race.getRacialAdjustment().containsKey(Skill.INTELLIGENCE))
-		{
-			return  intelligence + race.getRacialAdjustment().get(Skill.INTELLIGENCE);
-		}
-		return intelligence;
+		return intelligence + race.getRacialBonus(Skill.INTELLIGENCE);
 	}
 
 	public void setIntelligence(int intelligence) {
@@ -157,12 +137,7 @@ public class Character {
 	}
 
 	public int getWisdom() {
-		// If this race gets a bonus to wisdom than add it
-		if(race.getRacialAdjustment().containsKey(Skill.WISDOM))
-		{
-			return  wisdom + race.getRacialAdjustment().get(Skill.WISDOM);
-		}
-		return wisdom;
+		return wisdom + race.getRacialBonus(Skill.WISDOM);
 	}
 
 	public void setWisdom(int wisdom) {
@@ -170,12 +145,7 @@ public class Character {
 	}
 
 	public int getCharisma() {
-		// If this race gets a bonus to charisma than add it
-		if(race.getRacialAdjustment().containsKey(Skill.CHARISMA))
-		{
-			return  charisma + race.getRacialAdjustment().get(Skill.CHARISMA);
-		}
-		return charisma;
+		return charisma + race.getRacialBonus(Skill.CHARISMA);
 	}
 
 	public void setCharisma(int charisma) {

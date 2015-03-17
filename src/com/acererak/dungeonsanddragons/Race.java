@@ -1,3 +1,4 @@
+package com.acererak.dungeonsanddragons;
 import java.util.HashMap;
 
 
@@ -55,5 +56,14 @@ public class Race {
 	 * I.e. Dwarf has plus 1 to constitution and -1 to charisma*/
 	public HashMap<Skill, Integer> getRacialAdjustment() {
 		return racialAdjustment;
+	}
+	
+	public int getRacialBonus(Skill skill) {
+		// If this race gets a bonus to the skill than return the bonus
+		if(racialAdjustment.containsKey(skill))
+		{
+			return racialAdjustment.get(skill);
+		}
+		return 0;
 	}
 }

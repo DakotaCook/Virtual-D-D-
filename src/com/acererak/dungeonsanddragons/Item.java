@@ -1,3 +1,4 @@
+package com.acererak.dungeonsanddragons;
 
 public class Item {
 
